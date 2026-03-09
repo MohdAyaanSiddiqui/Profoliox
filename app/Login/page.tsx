@@ -75,7 +75,6 @@ export default function Example() {
                 <input
                     placeholder="Email id"
                     className="h-full w-full bg-transparent text-sm placeholder-gray-400 outline-none"
-                    required=""
                     type="email"
                 />
             </div>
@@ -87,13 +86,12 @@ export default function Example() {
                 <input
                     placeholder="Password"
                     className="h-full w-full bg-transparent text-sm placeholder-gray-400 outline-none"
-                    required=""
                     type="password"
                 />
             </div>
             <div className="mt-8 flex w-full items-center justify-between">
                 <label className="flex cursor-pointer items-center gap-2">
-                    <input className="peer hidden" type="checkbox" checked="" />
+                    <input className="peer hidden" type="checkbox" />
                     <span className="relative flex size-4.5 items-center justify-center rounded border border-slate-300 peer-checked:border-gray-800 peer-checked:bg-gray-800">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check size-3 text-white" aria-hidden="true" >
                             <path d="M20 6 9 17l-5-5"></path>
