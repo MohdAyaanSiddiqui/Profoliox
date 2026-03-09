@@ -26,24 +26,21 @@ const page = () => {
         </div>
 
         <h1 className="text-4xl md:text-[66px]/[72px] text-center max-w-4xl mt-6 bg-linear-to-r from-[#231233] via-[#F5F5F5] to-[#231233] text-transparent bg-clip-text leading-tight px-4">
-          Design, Build & Launch Websites with AI in Minutes
+          Design, Build & Launch Portfolio with AI in Minutes
         </h1>
         <p className="text-sm md:text-base bg-linear-to-r from-[#231233] via-[#F5F5F5] to-[#231233] text-transparent bg-clip-text text-center max-w-lg mt-4 px-4">
-          Create production-ready websites and UI components instantly with AI-generated layouts, code and design systems.
+          Create production-ready Portfolio instantly with AI-generated layouts, code and design systems.
         </p>
 
         <div className='flex gap-3 mt-7'>
           <button className="bg-white hover:bg-white/80 border border-white/5 text-gray-900 text-xs md:text-sm px-6 py-3 rounded-lg transition cursor-pointer">
             Get in touch
           </button>
-          <button className="bg-white/10 hover:bg-white/5 border border-white/5 text-gray-50 text-xs md:text-sm px-6 py-3 rounded-lg transition cursor-pointer">
-            Explore templates
-          </button>
         </div>
 
         <div className="relative mt-12 w-full max-w-5xl px-4">
           <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-4/5 md:w-[600px] lg:w-[800px] h-28 bg-[#D043FF] blur-[60px] opacity-100 z-0"></div>
-          <img className="relative z-10 max-h-64 md:max-h-80 w-full object-cover object-top" src="https://assets.prebuiltui.com/images/components/hero-section/hero-dashImage1.png" alt="" />
+          <img className="relative z-10 max-h-64 md:max-h-90 w-full object-cover object-top" src="HeroPort.jpeg" alt="" />
         </div>
       </header>
     </>
