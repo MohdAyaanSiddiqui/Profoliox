@@ -1,9 +1,9 @@
+'use client'
 import React from "react";
-
+import useNavigate from "react-dom"
 const page = () => {
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
   return (
     <>
       <style>

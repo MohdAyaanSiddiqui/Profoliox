@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Hero from './Hero/page';
-import Testimonials from './Testimonials/page'
+import Testimonials from './Testimonials/page';
+import Features from './Features/page'
+import Footer from './Footer/page'
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -125,6 +127,8 @@ const Header = () => {
     </div>
     <Hero/>
     <Testimonials/>
+    <Features/>
+    <Footer/>
     </>
   );
 };
