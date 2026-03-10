@@ -3,8 +3,17 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 export default function LoginPage() {
-    const [formData, setFormData] = useState({ email: "", password: "" });
+    
     const [rememberMe, setRememberMe] = useState(false);
+
+     type FormData = {
+            email:string,
+            password:string,
+        }
+        const[formData,setFormData] = useState<FormData>({
+            email:"",
+            password:"", 
+        })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -3,8 +3,19 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 export default function SignUpPage() {
-    const [formData, setFormData] = useState({ name: "", email: "", password: "", confirm: "" });
 
+    type FormData = {
+        name:string,
+        email:string,
+        password:string,
+        confirm:string
+    }
+    const[formData,setFormData] = useState<FormData>({
+        name:"",
+        email:"",
+        password:"",
+        confirm:""
+    })
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -54,20 +65,19 @@ export default function SignUpPage() {
             `}</style>
 
             <div className="auth-page min-h-screen bg-[#0C0414] flex items-center justify-center px-4 py-10">
-                {/* Glow blob */}
+
                 <div className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-40 bg-[#D043FF] blur-[90px] opacity-25 z-0" />
 
                 <div className="auth-card relative z-10 w-full max-w-md bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl px-8 py-10 shadow-2xl">
-                    {/* Header */}
+                
                     <div className="mb-8 text-center">
                         <img src="/MyLogo.jpeg" alt="Logo" className="w-14 h-14 rounded-xl object-cover mx-auto mb-4" />
                         <h1 className="text-3xl font-semibold text-white">Create account</h1>
                         <p className="mt-2 text-sm text-gray-400">Join us today — it&apos;s free to get started.</p>
                     </div>
 
-                    {/* Social buttons */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
-                        {/* Google */}
+
                         <button type="button" aria-label="Sign up with Google" className="social-btn">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#signup_g)">
@@ -79,7 +89,7 @@ export default function SignUpPage() {
                                 <defs><clipPath id="signup_g"><rect width="24" height="24" fill="white" /></clipPath></defs>
                             </svg>
                         </button>
-                        {/* X / Twitter */}
+
                         <button type="button" aria-label="Sign up with X" className="social-btn">
                             <svg width="18" height="20" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#signup_x)">
@@ -88,7 +98,7 @@ export default function SignUpPage() {
                                 <defs><clipPath id="signup_x"><rect width="21.985" height="24" fill="white" /></clipPath></defs>
                             </svg>
                         </button>
-                        {/* Facebook */}
+
                         <button type="button" aria-label="Sign up with Facebook" className="social-btn">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#signup_fb)">
@@ -100,16 +110,15 @@ export default function SignUpPage() {
                         </button>
                     </div>
 
-                    {/* Divider */}
                     <div className="flex items-center gap-3 mb-6">
                         <span className="divider-line" />
                         <span className="text-xs text-gray-500 whitespace-nowrap">or sign up with email</span>
                         <span className="divider-line" />
                     </div>
 
-                    {/* Form */}
+
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                        {/* Full Name */}
+
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
@@ -125,7 +134,6 @@ export default function SignUpPage() {
                             />
                         </div>
 
-                        {/* Email */}
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" />
@@ -140,8 +148,6 @@ export default function SignUpPage() {
                                 required
                             />
                         </div>
-
-                        {/* Password */}
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -157,7 +163,6 @@ export default function SignUpPage() {
                             />
                         </div>
 
-                        {/* Confirm Password */}
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -173,7 +178,6 @@ export default function SignUpPage() {
                             />
                         </div>
 
-                        {/* Terms note */}
                         <p className="text-xs text-gray-500 text-center px-2">
                             By signing up, you agree to our{" "}
                             <a href="#" className="text-teal-400 hover:text-teal-300 underline transition">Terms</a>
@@ -181,7 +185,7 @@ export default function SignUpPage() {
                             <a href="#" className="text-teal-400 hover:text-teal-300 underline transition">Privacy Policy</a>.
                         </p>
 
-                        {/* Submit */}
+
                         <button
                             type="submit"
                             className="mt-1 h-11 w-full cursor-pointer rounded-full bg-teal-500 hover:bg-teal-400 shadow-[0px_0px_20px_6px_rgba(20,184,166,0.35)] hover:shadow-[0px_0px_28px_10px_rgba(20,184,166,0.5)] text-white text-sm font-semibold transition duration-300"
@@ -190,7 +194,6 @@ export default function SignUpPage() {
                         </button>
                     </form>
 
-                    {/* Footer */}
                     <p className="mt-6 text-center text-sm text-gray-500">
                         Already have an account?{" "}
                         <Link href="/Login" className="text-teal-400 hover:text-teal-300 underline transition">
