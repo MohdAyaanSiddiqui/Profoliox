@@ -19,7 +19,7 @@ const Pricing = () => {
                 `}
             </style>
 
-            <div className='flex flex-col min-h-screen items-center justify-center py-16 px-4' style={{ backgroundImage: ('/bg.jpg') }}>
+            <div className='flex flex-col min-h-screen items-center justify-center py-16 px-4' style={{ background: '#0C0414' }}>
                 <div className="max-w-lg mx-auto mb-4 px-1">
                     <Link
                         href="/"
@@ -39,8 +39,8 @@ const Pricing = () => {
                     </Link>
                 </div>
                 <div className="text-center mb-12">
-                    <p className="text-base font-medium text-white-600 mb-3">OUR PRICINGS</p>
-                    <h1 className="text-5xl font-medium text-white-950 tracking-tighter">Simple plans for growth.</h1>
+                    <p className="text-base font-medium text-zinc-400 mb-3">OUR PRICINGS</p>
+                    <h1 className="text-5xl font-medium text-white tracking-tighter">Simple plans for growth.</h1>
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-6 max-w-6xl w-full justify-center">
