@@ -4,6 +4,7 @@ import Hero from './Hero/page';
 import Testimonials from './Testimonials/page';
 import Features from './Features/page'
 import Footer from './Footer/page'
+import Link from "next/link";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -48,12 +49,12 @@ const Header = () => {
 
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center gap-3 ml-auto pl-8">
-          <a
-            href="#register"
+          <Link
+            href="/SignUp"
             className="bg-teal-500 hover:bg-teal-400 shadow-[0px_0px_20px_6px_rgba(20,184,166,0.35)] hover:shadow-[0px_0px_28px_10px_rgba(20,184,166,0.5)] text-white px-5 py-2 rounded-full text-sm font-semibold transition duration-300"
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}

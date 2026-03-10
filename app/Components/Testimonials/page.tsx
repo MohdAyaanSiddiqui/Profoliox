@@ -43,7 +43,7 @@ export default function Example() {
                             alt="image" />
                         <div
                             className="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                            <h1 className="text-3xl">Software engineers</h1>
+                            <h1 className="text-3xl">Software Engineer</h1>
                             <p className="text-sm">"An amazing tool for developers and designers! Pro Folio X helped me build a stunning portfolio that truly represents my skills."</p>
 
                         </div>

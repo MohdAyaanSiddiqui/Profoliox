@@ -1,132 +1,204 @@
 'use client'
-import { useState } from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 
-export default function Example() {
-      const [formData, setFormData] = useState({
-            name:"",
-            email:"",
-            password:""
-        });
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
-            setFormData({
-                ...formData,
-                [e.target.name]: e.target.value
-            })
+export default function SignUpPage() {
+    const [formData, setFormData] = useState({ name: "", email: "", password: "", confirm: "" });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (formData.password !== formData.confirm) {
+            alert("Passwords do not match.");
+            return;
         }
-        const handleSubmit = (e: React.FormEvent)=>{
-            e.preventDefault();
-            console.log(formData);
-        }
+        console.log(formData);
+    };
+
     return (
-        <form className="flex w-full flex-col items-center justify-center max-w-96">
-            <h2 className="text-4xl font-medium text-gray-900">Sign in</h2>
-            <p className="mt-3 text-sm text-gray-500/90">Welcome back! Please sign in to continue</p>
-            <div className="mt-10 mb-2 grid w-full grid-cols-3 gap-6">
-                <button type="button" className="flex items-center justify-center rounded-full border border-gray-200 py-2.5 hover:bg-gray-50 focus:border-gray-300 cursor-pointer">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_8755_1278)">
-                            <path d="M12 9.81836V14.4656H18.4582C18.1746 15.9602 17.3236 17.2257 16.0472 18.0766L19.9417 21.0984C22.2108 19.0039 23.5199 15.9276 23.5199 12.273C23.5199 11.4221 23.4436 10.6039 23.3017 9.81849L12 9.81836Z" fill="#4285F4" />
-                            <path d="M5.27657 14.2842L4.3982 14.9566L1.28906 17.3783C3.2636 21.2947 7.31058 24.0002 12.0014 24.0002C15.2414 24.0002 17.9577 22.9311 19.9432 21.0984L16.0487 18.0765C14.9796 18.7965 13.6159 19.2329 12.0014 19.2329C8.88146 19.2329 6.23063 17.1275 5.28147 14.2911L5.27657 14.2842Z" fill="#34A853" />
-                            <path d="M1.28718 6.62207C0.469042 8.23655 0 10.0584 0 12.0002C0 13.942 0.469042 15.7638 1.28718 17.3783C1.28718 17.3891 5.27997 14.2801 5.27997 14.2801C5.03998 13.5601 4.89812 12.7965 4.89812 12.0001C4.89812 11.2036 5.03998 10.44 5.27997 9.72L1.28718 6.62207Z" fill="#FBBC05" />
-                            <path d="M12.0017 4.77818C13.769 4.77818 15.3399 5.38907 16.5944 6.56727L20.0307 3.13095C17.9471 1.18917 15.2417 0 12.0017 0C7.31082 0 3.2636 2.69454 1.28906 6.62183L5.28174 9.72001C6.23077 6.88362 8.88171 4.77818 12.0017 4.77818Z" fill="#EA4335" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_8755_1278">
-                                <rect width="24" height="24" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </button>
-                <button type="button" className="flex items-center justify-center rounded-full border border-gray-200 py-2.5 hover:bg-gray-50 focus:border-gray-300 cursor-pointer">
-                    <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_8755_1275)">
-                            <path d="M16.7855 1.9043H19.8757L13.1245 10.3278L21.0667 21.7903H14.848L9.9773 14.8383L4.40409 21.7903H1.31202L8.53308 12.7804L0.914062 1.9043H7.29065L11.6934 8.25863L16.7855 1.9043ZM15.7009 19.7711H17.4132L6.36022 3.81743H4.52273L15.7009 19.7711Z" fill="black" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_8755_1275">
-                                <rect width="21.9847" height="24" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </button>
-                <button type="button" className="flex items-center justify-center rounded-full border border-gray-200 py-2.5 hover:bg-gray-50 focus:border-gray-300 cursor-pointer">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_8755_1272)">
-                            <path d="M24 12C24 5.37264 18.6274 0 12 0C5.37264 0 0 5.37264 0 12C0 17.6275 3.87456 22.3498 9.10128 23.6467V15.6672H6.62688V12H9.10128V10.4198C9.10128 6.33552 10.9498 4.4424 14.9597 4.4424C15.72 4.4424 17.0318 4.59168 17.5685 4.74048V8.06448C17.2853 8.03472 16.7933 8.01984 16.1822 8.01984C14.2147 8.01984 13.4544 8.76528 13.4544 10.703V12H17.3741L16.7006 15.6672H13.4544V23.9122C19.3963 23.1946 24.0005 18.1354 24.0005 12H24Z" fill="#0866FF" />
-                            <path d="M16.6988 15.6672L17.3722 12H13.4525V10.703C13.4525 8.76526 14.2128 8.01982 16.1804 8.01982C16.7914 8.01982 17.2834 8.0347 17.5666 8.06446V4.74046C17.03 4.59118 15.7181 4.44238 14.9578 4.44238C10.9479 4.44238 9.0994 6.3355 9.0994 10.4198V12H6.625V15.6672H9.0994V23.6467C10.0277 23.8771 10.9988 24 11.9981 24C12.4901 24 12.9754 23.9697 13.452 23.9121V15.6672H16.6983H16.6988Z" fill="white" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_8755_1272">
-                                <rect width="24" height="24" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </button>
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+                .auth-page * { font-family: 'Inter', sans-serif; }
+                .auth-input::placeholder { color: #6b7280; }
+                .auth-input:focus { outline: none; }
+                @keyframes fadeUp {
+                    from { opacity: 0; transform: translateY(24px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                }
+                .auth-card { animation: fadeUp 0.5s ease both; }
+                .social-btn {
+                    display: flex; align-items: center; justify-content: center;
+                    border-radius: 9999px;
+                    border: 1px solid rgba(255,255,255,0.12);
+                    background: rgba(255,255,255,0.05);
+                    padding: 10px 0;
+                    cursor: pointer;
+                    transition: background 0.2s, border-color 0.2s;
+                }
+                .social-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); }
+                .field-wrap {
+                    display: flex; align-items: center; gap: 10px;
+                    height: 48px; width: 100%;
+                    border: 1px solid rgba(255,255,255,0.12);
+                    border-radius: 9999px;
+                    background: rgba(255,255,255,0.04);
+                    padding-left: 20px;
+                    transition: border-color 0.2s;
+                }
+                .field-wrap:focus-within { border-color: #14b8a6; }
+                .divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+            `}</style>
+
+            <div className="auth-page min-h-screen bg-[#0C0414] flex items-center justify-center px-4 py-10">
+                {/* Glow blob */}
+                <div className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-40 bg-[#D043FF] blur-[90px] opacity-25 z-0" />
+
+                <div className="auth-card relative z-10 w-full max-w-md bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl px-8 py-10 shadow-2xl">
+                    {/* Header */}
+                    <div className="mb-8 text-center">
+                        <img src="/MyLogo.jpeg" alt="Logo" className="w-14 h-14 rounded-xl object-cover mx-auto mb-4" />
+                        <h1 className="text-3xl font-semibold text-white">Create account</h1>
+                        <p className="mt-2 text-sm text-gray-400">Join us today — it&apos;s free to get started.</p>
+                    </div>
+
+                    {/* Social buttons */}
+                    <div className="grid grid-cols-3 gap-4 mb-6">
+                        {/* Google */}
+                        <button type="button" aria-label="Sign up with Google" className="social-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clipPath="url(#signup_g)">
+                                    <path d="M12 9.818V14.466h6.458c-.284 1.494-1.135 2.76-2.411 3.61l3.895 3.022C22.21 19.004 23.52 15.928 23.52 12.273c0-.851-.077-1.669-.218-2.455L12 9.818Z" fill="#4285F4" />
+                                    <path d="M5.277 14.284 4.398 14.957l-3.11 2.421C3.264 21.295 7.31 24 12.001 24c3.24 0 5.957-1.069 7.942-2.902l-3.895-3.022c-1.069.72-2.432 1.157-4.047 1.157-3.12 0-5.77-2.105-6.72-4.942l-.004-.007Z" fill="#34A853" />
+                                    <path d="M1.287 6.622A11.963 11.963 0 0 0 0 12c0 1.942.469 3.764 1.287 5.378L5.28 14.28A7.16 7.16 0 0 1 4.898 12c0-.797.142-1.56.382-2.28L1.287 6.622Z" fill="#FBBC05" />
+                                    <path d="M12.002 4.778c1.767 0 3.338.61 4.592 1.789l3.437-3.437C17.947 1.19 15.242 0 12.002 0 7.31 0 3.264 2.695 1.29 6.622l3.992 3.098c.95-2.836 3.6-4.942 6.72-4.942Z" fill="#EA4335" />
+                                </g>
+                                <defs><clipPath id="signup_g"><rect width="24" height="24" fill="white" /></clipPath></defs>
+                            </svg>
+                        </button>
+                        {/* X / Twitter */}
+                        <button type="button" aria-label="Sign up with X" className="social-btn">
+                            <svg width="18" height="20" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clipPath="url(#signup_x)">
+                                    <path d="M16.785 1.904h3.09L13.125 10.328l7.942 11.462H14.848L9.977 14.838l-5.573 6.952H1.312l8.221-9.01L.914 1.904h6.377l4.402 6.355 5.092-6.355Zm-1.084 17.867h1.712L6.36 3.817H4.523l11.178 15.954Z" fill="white" />
+                                </g>
+                                <defs><clipPath id="signup_x"><rect width="21.985" height="24" fill="white" /></clipPath></defs>
+                            </svg>
+                        </button>
+                        {/* Facebook */}
+                        <button type="button" aria-label="Sign up with Facebook" className="social-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clipPath="url(#signup_fb)">
+                                    <path d="M24 12C24 5.373 18.627 0 12 0S0 5.373 0 12c0 5.628 3.875 10.35 9.101 11.647V15.667H6.627V12H9.1V10.42c0-4.085 1.85-5.978 5.86-5.978.76 0 2.072.15 2.608.299v3.324c-.283-.03-.775-.045-1.386-.045-1.967 0-2.728.745-2.728 2.683V12h3.919l-.673 3.667h-3.246v8.255C19.396 23.195 24 18.135 24 12Z" fill="#0866FF" />
+                                    <path d="M16.699 15.667l.673-3.667H13.453V10.703c0-1.968.761-2.683 2.728-2.683.611 0 1.103.015 1.386.045V4.74c-.536-.149-1.848-.299-2.608-.299-4.01 0-5.86 1.893-5.86 5.978V12H6.625v3.667h2.474v8.255A12.07 12.07 0 0 0 12 24c.492 0 .977-.03 1.453-.088V15.667h3.246Z" fill="white" />
+                                </g>
+                                <defs><clipPath id="signup_fb"><rect width="24" height="24" fill="white" /></clipPath></defs>
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="flex items-center gap-3 mb-6">
+                        <span className="divider-line" />
+                        <span className="text-xs text-gray-500 whitespace-nowrap">or sign up with email</span>
+                        <span className="divider-line" />
+                    </div>
+
+                    {/* Form */}
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                        {/* Full Name */}
+                        <div className="field-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                            </svg>
+                            <input
+                                name="name"
+                                type="text"
+                                placeholder="Full name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                className="auth-input h-full w-full bg-transparent text-sm text-white"
+                                required
+                            />
+                        </div>
+
+                        {/* Email */}
+                        <div className="field-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" />
+                            </svg>
+                            <input
+                                name="email"
+                                type="email"
+                                placeholder="Email address"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className="auth-input h-full w-full bg-transparent text-sm text-white"
+                                required
+                            />
+                        </div>
+
+                        {/* Password */}
+                        <div className="field-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                            <input
+                                name="password"
+                                type="password"
+                                placeholder="Password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                className="auth-input h-full w-full bg-transparent text-sm text-white"
+                                required
+                            />
+                        </div>
+
+                        {/* Confirm Password */}
+                        <div className="field-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            <input
+                                name="confirm"
+                                type="password"
+                                placeholder="Confirm password"
+                                value={formData.confirm}
+                                onChange={handleChange}
+                                className="auth-input h-full w-full bg-transparent text-sm text-white"
+                                required
+                            />
+                        </div>
+
+                        {/* Terms note */}
+                        <p className="text-xs text-gray-500 text-center px-2">
+                            By signing up, you agree to our{" "}
+                            <a href="#" className="text-teal-400 hover:text-teal-300 underline transition">Terms</a>
+                            {" "}and{" "}
+                            <a href="#" className="text-teal-400 hover:text-teal-300 underline transition">Privacy Policy</a>.
+                        </p>
+
+                        {/* Submit */}
+                        <button
+                            type="submit"
+                            className="mt-1 h-11 w-full cursor-pointer rounded-full bg-teal-500 hover:bg-teal-400 shadow-[0px_0px_20px_6px_rgba(20,184,166,0.35)] hover:shadow-[0px_0px_28px_10px_rgba(20,184,166,0.5)] text-white text-sm font-semibold transition duration-300"
+                        >
+                            Create Account
+                        </button>
+                    </form>
+
+                    {/* Footer */}
+                    <p className="mt-6 text-center text-sm text-gray-500">
+                        Already have an account?{" "}
+                        <Link href="/Login" className="text-teal-400 hover:text-teal-300 underline transition">
+                            Sign in
+                        </Link>
+                    </p>
+                </div>
             </div>
-            <div className="my-5 flex w-full items-center gap-4">
-                <div className="h-px w-full bg-gray-300/90"></div>
-                <p className="w-full text-sm text-nowrap text-gray-500/90">or sign in with email</p>
-                <div className="h-px w-full bg-gray-300/90"></div>
-            </div>
-              <div className="flex h-12 w-full items-center gap-2 overflow-hidden rounded-full border border-gray-200 bg-transparent pl-5 focus-within:border-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail text-gray-400" aria-hidden="true" >
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                </svg>
-                <input
-                    placeholder="Name"
-                    className="h-full w-full bg-transparent text-sm placeholder-gray-400 outline-none"
-                  
-                    type="name"
-                />
-            </div>
-            <div className="flex h-12 w-full items-center gap-2 overflow-hidden rounded-full border border-gray-200 bg-transparent pl-5 focus-within:border-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail text-gray-400" aria-hidden="true" >
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                </svg>
-                <input
-                    placeholder="Email id"
-                    className="h-full w-full bg-transparent text-sm placeholder-gray-400 outline-none"
-              
-                    type="email"
-                />
-            </div>
-            <div className="mt-6 flex h-12 w-full items-center gap-2 overflow-hidden rounded-full border border-gray-200 bg-transparent pl-5 focus-within:border-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-lock text-gray-400" aria-hidden="true" >
-                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-                <input
-                    placeholder="Password"
-                    className="h-full w-full bg-transparent text-sm placeholder-gray-400 outline-none"
-              
-                    type="password"
-                />
-            </div>
-            <div className="mt-8 flex w-full items-center justify-between">
-                <label className="flex cursor-pointer items-center gap-2">
-                    <input className="peer hidden" type="checkbox"  />
-                    <span className="relative flex size-4.5 items-center justify-center rounded border border-slate-300 peer-checked:border-gray-800 peer-checked:bg-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check size-3 text-white" aria-hidden="true" >
-                            <path d="M20 6 9 17l-5-5"></path>
-                        </svg>
-                    </span>
-                    <span className="text-gray-500 select-none">Remember me</span>
-                </label>
-                <a className="text-gray-800 underline" href="#">
-                    Forgot password?
-                </a>
-            </div>
-            <button type="submit" className="mt-8 h-11 w-full cursor-pointer rounded-full bg-linear-to-b from-gray-600 to-gray-800 text-white transition hover:from-gray-700 hover:to-gray-900" >
-                Login
-            </button>
-            <p className="mt-4 text-gray-500/90">
-                Don’t have an account?
-                <a className="text-gray-800 underline" href="#">
-                    Sign up
-                </a>
-            </p>
-        </form>
+        </>
     );
-};
+}
