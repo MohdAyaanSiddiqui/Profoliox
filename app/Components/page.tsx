@@ -9,10 +9,9 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "/About" },
+    { label: "Pricing", href: "/Pricing" },
+    { label: "Contact", href: "/Contact" },
   ];
 
   return (
@@ -31,6 +30,7 @@ const Header = () => {
 
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex items-center gap-4 ml-8">
+          
           {navLinks.map(({ label, href }) => (
             <li key={label}>
               <div className="nav-glow-wrapper">
@@ -44,6 +44,7 @@ const Header = () => {
                 </a>
               </div>
             </li>
+            
           ))}
         </ul>
 

@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import React from "react";
 import useNavigate from "react-dom"
 const page = () => {
@@ -31,12 +32,6 @@ const page = () => {
         <p className="text-sm md:text-base bg-linear-to-r from-[#231233] via-[#F5F5F5] to-[#231233] text-transparent bg-clip-text text-center max-w-lg mt-4 px-4">
           Create production-ready Portfolio instantly with AI-generated layouts, code and design systems.
         </p>
-
-        <div className='flex gap-3 mt-7'>
-          <button className="bg-white hover:bg-white/80 border border-white/5 text-gray-900 text-xs md:text-sm px-6 py-3 rounded-lg transition cursor-pointer">
-            Get in touch
-          </button>
-        </div>
 
         <div className="relative mt-12 w-full max-w-5xl px-4">
           <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-4/5 md:w-[600px] lg:w-[800px] h-28 bg-[#D043FF] blur-[60px] opacity-100 z-0"></div>
