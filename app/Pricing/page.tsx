@@ -1,12 +1,12 @@
 'use client'
 import React from "react"
 import Link from "next/link"
-const Pricing = () => {
-    const [starterAnnual, setStarterAnnual] = React.useState(false)
-    const [scaleAnnual, setScaleAnnual] = React.useState(false)
+const Pricing:React.FC = () => {
+    const [starterAnnual, setStarterAnnual] = React.useState<boolean>(false)
+    const [scaleAnnual, setScaleAnnual] = React.useState<boolean>(false)
 
-    const starterFeatures = ["Core UI components", "Limited workflow", "24 hour support"]
-    const scaleFeatures = ["All UI components", "Unlimited workflow", "24 hour support"]
+    const starterFeatures: string[] = ["Core UI components", "Limited workflow", "24 hour support"]
+    const scaleFeatures: string[] = ["All UI components", "Unlimited workflow", "24 hour support"]
 
     return (
         <>
@@ -123,7 +123,7 @@ const Pricing = () => {
                         {/* Features */}
                         <div className="grow mb-7">
                             <ul className="space-y-3.5">
-                                {scaleFeatures.map((feature, index) => (
+                                {scaleFeatures.map((feature:string, index:number) => (
                                     <li key={index} className="flex items-center gap-3">
                                         <div className="w-4.5 h-4.5 rounded-sm bg-rose-500 flex items-center justify-center shrink-0">
                                             <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
