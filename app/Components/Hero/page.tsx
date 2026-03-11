@@ -1,10 +1,9 @@
 'use client'
-import Link from "next/link";
 import React from "react";
-import useNavigate from "react-dom"
-const page = () => {
+import Image from "next/image";
+const page: React.FC = () => {
 
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
   return (
     <>
       <style>
@@ -35,7 +34,7 @@ const page = () => {
 
         <div className="relative mt-12 w-full max-w-5xl px-4">
           <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-4/5 md:w-[600px] lg:w-[800px] h-28 bg-[#D043FF] blur-[60px] opacity-100 z-0"></div>
-          <img className="relative z-10 max-h-64 md:max-h-90 w-full object-cover object-top" src="HeroPort.jpeg" alt="" />
+          <Image className="relative z-10 max-h-64 md:max-h-90 w-full object-cover object-top" src="HeroPort.jpeg" alt="" />
         </div>
       </header>
     </>
