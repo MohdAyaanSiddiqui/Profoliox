@@ -5,10 +5,16 @@ import Testimonials from './Testimonials/page';
 import Features from './Features/page'
 import Footer from './Footer/page'
 import Link from "next/link";
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+import Image from "next/image";
 
-  const navLinks = [
+const Header:React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  type NavLink = {
+    label:string,
+    href: string
+  }
+  const navLinks: NavLink[] = [
     { label: "About", href: "/About" },
     { label: "Pricing", href: "/Pricing" },
     { label: "Contact", href: "/Contact" },
@@ -24,9 +30,9 @@ const Header = () => {
           px-6 py-3 rounded-full text-white text-sm shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
       >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 shrink-0">
-          <img src="MyLogo.jpeg" alt="" className="w-24 h-24"/>
-        </a>
+        <Link href="#" className="flex items-center gap-2 shrink-0">
+          <Image src="MyLogo.jpeg" alt="" className="w-24 h-24"/>
+        </Link>
 
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex items-center gap-4 ml-8">
@@ -34,14 +40,14 @@ const Header = () => {
           {navLinks.map(({ label, href }) => (
             <li key={label}>
               <div className="nav-glow-wrapper">
-                <a
+                <Link
                   href={href}
                   className="relative z-10 flex items-center bg-gray-900 text-gray-300 hover:text-white rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 group"
                 >
                   <span className="block transition-transform duration-300 group-hover:text-teal-300">
                     {label}
                   </span>
-                </a>
+                </Link>
               </div>
             </li>
             
@@ -107,22 +113,22 @@ const Header = () => {
         >
           {navLinks.map(({ label, href }) => (
             <div key={label} className="nav-glow-wrapper">
-              <a
+              <Link
                 href={href}
                 onClick={() => setMenuOpen(false)}
                 className="relative z-10 flex items-center bg-gray-900 text-gray-300 hover:text-teal-300 rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200"
               >
                 {label}
-              </a>
+              </Link>
             </div>
           ))}
           <div className="flex flex-col w-full items-center gap-3 mt-2 px-6">
-            <a
+            <Link
               href="#register"
               className="w-full text-center bg-teal-500 hover:bg-teal-400 shadow-[0px_0px_20px_6px_rgba(20,184,166,0.35)] text-white px-5 py-2 rounded-full text-sm font-semibold transition"
             >
               Get Started
-            </a>
+            </Link>
           </div>
         </div>
       )}
