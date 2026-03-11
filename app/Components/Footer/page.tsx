@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
+
 export default function Footer() {
     return (
         <>
@@ -16,7 +16,7 @@ export default function Footer() {
                 <div className="flex flex-wrap items-start gap-10 md:gap-[60px] xl:gap-[140px]">
                     {/* Logo */}
                     <Link href="/" aria-label="Home">
-                        <Image src="MyLogo.jpeg" alt="Logo" className="w-12 h-12 rounded-md object-cover" />
+                        <img src="MyLogo.jpeg" alt="Logo" className="w-12 h-12 rounded-md object-cover" />
                     </Link>
 
                     <div>

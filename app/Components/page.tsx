@@ -5,7 +5,6 @@ import Testimonials from './Testimonials/page';
 import Features from './Features/page'
 import Footer from './Footer/page'
 import Link from "next/link";
-import Image from "next/image";
 
 const Header:React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -31,7 +30,7 @@ const Header:React.FC = () => {
       >
         {/* Logo */}
         <Link href="#" className="flex items-center gap-2 shrink-0">
-          <Image src="MyLogo.jpeg" alt="" className="w-24 h-24"/>
+          <img src="MyLogo.jpeg" alt="Logo"  className="w-16 h-16" />
         </Link>
 
         {/* Desktop Nav Links */}
