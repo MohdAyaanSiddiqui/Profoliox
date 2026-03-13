@@ -76,7 +76,7 @@ export default function SignUpPage() {
                         <p className="mt-2 text-sm text-gray-400">Join us today — it&apos;s free to get started.</p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="grid grid-cols-3 gap-4 mb-6 ml-40">
 
                         <button type="button" aria-label="Sign up with Google" className="social-btn">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,24 +90,9 @@ export default function SignUpPage() {
                             </svg>
                         </button>
 
-                        <button type="button" aria-label="Sign up with X" className="social-btn">
-                            <svg width="18" height="20" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#signup_x)">
-                                    <path d="M16.785 1.904h3.09L13.125 10.328l7.942 11.462H14.848L9.977 14.838l-5.573 6.952H1.312l8.221-9.01L.914 1.904h6.377l4.402 6.355 5.092-6.355Zm-1.084 17.867h1.712L6.36 3.817H4.523l11.178 15.954Z" fill="white" />
-                                </g>
-                                <defs><clipPath id="signup_x"><rect width="21.985" height="24" fill="white" /></clipPath></defs>
-                            </svg>
-                        </button>
+             
 
-                        <button type="button" aria-label="Sign up with Facebook" className="social-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#signup_fb)">
-                                    <path d="M24 12C24 5.373 18.627 0 12 0S0 5.373 0 12c0 5.628 3.875 10.35 9.101 11.647V15.667H6.627V12H9.1V10.42c0-4.085 1.85-5.978 5.86-5.978.76 0 2.072.15 2.608.299v3.324c-.283-.03-.775-.045-1.386-.045-1.967 0-2.728.745-2.728 2.683V12h3.919l-.673 3.667h-3.246v8.255C19.396 23.195 24 18.135 24 12Z" fill="#0866FF" />
-                                    <path d="M16.699 15.667l.673-3.667H13.453V10.703c0-1.968.761-2.683 2.728-2.683.611 0 1.103.015 1.386.045V4.74c-.536-.149-1.848-.299-2.608-.299-4.01 0-5.86 1.893-5.86 5.978V12H6.625v3.667h2.474v8.255A12.07 12.07 0 0 0 12 24c.492 0 .977-.03 1.453-.088V15.667h3.246Z" fill="white" />
-                                </g>
-                                <defs><clipPath id="signup_fb"><rect width="24" height="24" fill="white" /></clipPath></defs>
-                            </svg>
-                        </button>
+                        
                     </div>
 
                     <div className="flex items-center gap-3 mb-6">

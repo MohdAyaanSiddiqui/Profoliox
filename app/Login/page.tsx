@@ -72,7 +72,7 @@ export default function LoginPage() {
                     </div>
 
                     {/* Social buttons */}
-                    <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="grid grid-cols-3 gap-4 mb-6 ml-40">
                         {/* Google */}
                         <button type="button" aria-label="Sign in with Google" className="social-btn">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,25 +83,6 @@ export default function LoginPage() {
                                     <path d="M12.002 4.778c1.767 0 3.338.61 4.592 1.789l3.437-3.437C17.947 1.19 15.242 0 12.002 0 7.31 0 3.264 2.695 1.29 6.622l3.992 3.098c.95-2.836 3.6-4.942 6.72-4.942Z" fill="#EA4335" />
                                 </g>
                                 <defs><clipPath id="login_g"><rect width="24" height="24" fill="white" /></clipPath></defs>
-                            </svg>
-                        </button>
-                        {/* X / Twitter */}
-                        <button type="button" aria-label="Sign in with X" className="social-btn">
-                            <svg width="18" height="20" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#login_x)">
-                                    <path d="M16.785 1.904h3.09L13.125 10.328l7.942 11.462H14.848L9.977 14.838l-5.573 6.952H1.312l8.221-9.01L.914 1.904h6.377l4.402 6.355 5.092-6.355Zm-1.084 17.867h1.712L6.36 3.817H4.523l11.178 15.954Z" fill="white" />
-                                </g>
-                                <defs><clipPath id="login_x"><rect width="21.985" height="24" fill="white" /></clipPath></defs>
-                            </svg>
-                        </button>
-                        {/* Facebook */}
-                        <button type="button" aria-label="Sign in with Facebook" className="social-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#login_fb)">
-                                    <path d="M24 12C24 5.373 18.627 0 12 0S0 5.373 0 12c0 5.628 3.875 10.35 9.101 11.647V15.667H6.627V12H9.1V10.42c0-4.085 1.85-5.978 5.86-5.978.76 0 2.072.15 2.608.299v3.324c-.283-.03-.775-.045-1.386-.045-1.967 0-2.728.745-2.728 2.683V12h3.919l-.673 3.667h-3.246v8.255C19.396 23.195 24 18.135 24 12Z" fill="#0866FF" />
-                                    <path d="M16.699 15.667l.673-3.667H13.453V10.703c0-1.968.761-2.683 2.728-2.683.611 0 1.103.015 1.386.045V4.74c-.536-.149-1.848-.299-2.608-.299-4.01 0-5.86 1.893-5.86 5.978V12H6.625v3.667h2.474v8.255A12.07 12.07 0 0 0 12 24c.492 0 .977-.03 1.453-.088V15.667h3.246Z" fill="white" />
-                                </g>
-                                <defs><clipPath id="login_fb"><rect width="24" height="24" fill="white" /></clipPath></defs>
                             </svg>
                         </button>
                     </div>
