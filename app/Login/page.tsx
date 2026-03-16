@@ -60,20 +60,19 @@ export default function LoginPage() {
             `}</style>
 
             <div className="auth-page min-h-screen bg-[#0C0414] flex items-center justify-center px-4">
-                {/* Glow blob */}
+                
                 <div className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-40 bg-[#D043FF] blur-[90px] opacity-25 z-0" />
 
                 <div className="auth-card relative z-10 w-full max-w-md bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl px-8 py-10 shadow-2xl">
-                    {/* Header */}
+                    
                     <div className="mb-8 text-center">
                         <img src="/MyLogo.jpeg" alt="Logo" className="w-14 h-14 rounded-xl object-cover mx-auto mb-4" />
                         <h1 className="text-3xl font-semibold text-white">Sign in</h1>
                         <p className="mt-2 text-sm text-gray-400">Welcome back! Please sign in to continue.</p>
                     </div>
 
-                    {/* Social buttons */}
                     <div className="grid grid-cols-3 gap-4 mb-6 ml-40">
-                        {/* Google */}
+                       
                         <button type="button" aria-label="Sign in with Google" className="social-btn">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#login_g)">
@@ -87,16 +86,14 @@ export default function LoginPage() {
                         </button>
                     </div>
 
-                    {/* Divider */}
                     <div className="flex items-center gap-3 mb-6">
                         <span className="divider-line" />
                         <span className="text-xs text-gray-500 whitespace-nowrap">or sign in with email</span>
                         <span className="divider-line" />
                     </div>
 
-                    {/* Form */}
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                        {/* Email */}
+                       
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" />
@@ -112,7 +109,6 @@ export default function LoginPage() {
                             />
                         </div>
 
-                        {/* Password */}
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -128,7 +124,7 @@ export default function LoginPage() {
                             />
                         </div>
 
-                        {/* Remember / Forgot */}
+                        
                         <div className="flex items-center justify-between">
                             <label className="flex items-center gap-2 cursor-pointer">
                                 <input
@@ -149,7 +145,7 @@ export default function LoginPage() {
                             <a href="#" className="text-sm text-teal-400 hover:text-teal-300 transition">Forgot password?</a>
                         </div>
 
-                        {/* Submit */}
+                       
                         <button
                             type="submit"
                             className="mt-2 h-11 w-full cursor-pointer rounded-full bg-teal-500 hover:bg-teal-400 shadow-[0px_0px_20px_6px_rgba(20,184,166,0.35)] hover:shadow-[0px_0px_28px_10px_rgba(20,184,166,0.5)] text-white text-sm font-semibold transition duration-300"
@@ -158,7 +154,7 @@ export default function LoginPage() {
                         </button>
                     </form>
 
-                    {/* Footer */}
+                   
                     <p className="mt-6 text-center text-sm text-gray-500">
                         Don&apos;t have an account?{" "}
                         <Link href="/SignUp" className="text-teal-400 hover:text-teal-300 underline transition">

@@ -14,7 +14,7 @@ export default function Footer() {
             `}</style>
             <footer className="footer-root flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-20 py-16 px-6 md:px-16 lg:px-24 xl:px-32 text-[13px] text-gray-500 bg-[#0C0414] border-t border-white/10">
                 <div className="flex flex-wrap items-start gap-10 md:gap-[60px] xl:gap-[140px]">
-                    {/* Logo */}
+                   
                     <Link href="/" aria-label="Home">
                         <img src="MyLogo.jpeg" alt="Logo" className="w-12 h-12 rounded-md object-cover" />
                     </Link>
@@ -52,9 +52,8 @@ export default function Footer() {
                 <div className="flex flex-col max-md:items-center max-md:text-center gap-2 items-end">
                     <p className="max-w-60 text-gray-400">Making every customer feel valued—no matter the size of your audience.</p>
 
-                    {/* Social Icons */}
                     <div className="flex items-center gap-4 mt-3">
-                        {/* Dribbble */}
+                        
                         <Link href="https://dribbble.com/prebuiltui" target="_blank" rel="noreferrer" aria-label="Dribbble">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-dribbble size-5 hover:text-indigo-400 transition" aria-hidden="true">
                                 <circle cx="12" cy="12" r="10"></circle>
@@ -64,7 +63,7 @@ export default function Footer() {
                             </svg>
                         </Link>
 
-                        {/* LinkedIn */}
+                    
                         <Link href="https://www.linkedin.com/company/prebuiltui" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin size-5 hover:text-indigo-400 transition" aria-hidden="true">
                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -73,14 +72,14 @@ export default function Footer() {
                             </svg>
                         </Link>
 
-                        {/* Twitter / X */}
+                        
                         <Link href="https://x.com/prebuiltui" target="_blank" rel="noreferrer" aria-label="Twitter">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter size-5 hover:text-indigo-400 transition" aria-hidden="true">
                                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                             </svg>
                         </Link>
 
-                        {/* YouTube */}
+                    
                         <Link href="/" target="_blank" rel="noreferrer" aria-label="YouTube">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube size-6 hover:text-indigo-400 transition" aria-hidden="true">
                                 <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
@@ -89,7 +88,7 @@ export default function Footer() {
                         </Link>
                     </div>
 
-                    {/* Copyright */}
+                
                     <p className="mt-3 text-gray-500 text-xs">© 2026 ProfolioX. All rights reserved.</p>
                 </div>
             </footer>

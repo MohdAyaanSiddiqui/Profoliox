@@ -44,16 +44,16 @@ const Pricing:React.FC = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-6 max-w-6xl w-full justify-center">
-                    {/* Starter Card */}
+                    
                     <div className="bg-white border border-zinc-200 rounded-3xl px-8 pt-8 pb-6 w-full md:w-[360px] flex flex-col">
-                        {/* Badge */}
+
                         <div className="mb-6">
                             <span className="inline-block px-4 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-sm font-medium text-zinc-500">
                                 Starter
                             </span>
                         </div>
 
-                        {/* Price */}
+                        
                         <div className="mb-4.5">
                             <h2 className="text-4xl font-medium text-zinc-800">
                                 ${starterAnnual ? '1788' : '149'}
@@ -61,10 +61,10 @@ const Pricing:React.FC = () => {
                             </h2>
                         </div>
 
-                        {/* Line */}
+                        
                         <div className="border-b border-zinc-300 mb-4.5"></div>
 
-                        {/* Features */}
+                        
                         <div className="grow mb-7">
                             <ul className="space-y-3.5">
                                 {starterFeatures.map((feature, index) => (
@@ -80,10 +80,10 @@ const Pricing:React.FC = () => {
                             </ul>
                         </div>
 
-                        {/* Line */}
+                        
                         <div className="border-b border-zinc-300 mb-4.5"></div>
 
-                        {/* Annual Toggle */}
+
                         <div className="flex items-center justify-between mb-3.5">
                             <span className="text-sm font-medium text-zinc-400">Annual plan</span>
                             <button onClick={() => setStarterAnnual(!starterAnnual)} className={`w-11 h-6 rounded-full cursor-pointer transition-colors duration-200 relative ${starterAnnual ? 'bg-rose-500' : 'bg-zinc-100'}`}>
@@ -91,15 +91,15 @@ const Pricing:React.FC = () => {
                             </button>
                         </div>
 
-                        {/* CTA Button */}
+                        
                         <button className="w-full py-2.5 border-2 border-rose-500 text-rose-500 rounded-lg text-sm font-medium hover:bg-rose-50 transition-colors duration-200 cursor-pointer">
                             Get Started
                         </button>
                     </div>
 
-                    {/* Scale Card */}
+                    
                     <div className="bg-zinc-900 border border-zinc-200 rounded-3xl px-8 pt-8 pb-6 w-full md:w-[360px] flex flex-col">
-                        {/* Badges */}
+                        
                         <div className="mb-6 flex items-center justify-between gap-3">
                             <span className="inline-block px-4 py-1.5 bg-[#454548] rounded-lg text-sm font-medium text-zinc-200">
                                 Scale
@@ -109,7 +109,7 @@ const Pricing:React.FC = () => {
                             </span>
                         </div>
 
-                        {/* Price */}
+                        
                         <div className="mb-4.5">
                             <h2 className="text-4xl font-medium text-white">
                                 ${scaleAnnual ? '7188' : '599'}
@@ -117,10 +117,10 @@ const Pricing:React.FC = () => {
                             </h2>
                         </div>
 
-                        {/* Line */}
+                        
                         <div className="border-b border-zinc-300 mb-4.5"></div>
 
-                        {/* Features */}
+                        
                         <div className="grow mb-7">
                             <ul className="space-y-3.5">
                                 {scaleFeatures.map((feature:string, index:number) => (
@@ -135,19 +135,16 @@ const Pricing:React.FC = () => {
                                 ))}
                             </ul>
                         </div>
-
-                        {/* Line */}
+                        
                         <div className="border-b border-zinc-300 mb-4.5"></div>
-
-                        {/* Annual Toggle */}
+                       
                         <div className="flex items-center justify-between mb-3.5">
                             <span className="text-sm font-medium text-white">Annual plan</span>
                             <button onClick={() => setScaleAnnual(!scaleAnnual)} className={`w-11 h-6 rounded-full cursor-pointer transition-colors duration-200 relative ${scaleAnnual ? 'bg-rose-500' : 'bg-white'}`} >
                                 <div className={`absolute top-1 left-1 w-4 h-4 bg-rose-500 rounded-full transition-transform duration-300 ${scaleAnnual ? 'translate-x-5 bg-white' : 'translate-x-0'}`} />
                             </button>
                         </div>
-
-                        {/* CTA Button */}
+                        
                         <button className="w-full py-2.5 bg-rose-500 text-white rounded-lg text-sm font-medium hover:bg-rose-600 transition-colors duration-200 cursor-pointer">
                             Get Started
                         </button>
