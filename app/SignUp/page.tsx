@@ -3,10 +3,28 @@ import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useGoogleLogin } from '@react-oauth/google';
 import { toast } from "react-hot-toast";
+import {signIn} from "next-auth/react"
 export default function SignUpPage() {
     
     const router = useRouter();
+    const loginWithGoogle = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            try {
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/user/google`, {
+                    token: tokenResponse.access_token
+                }, { withCredentials: true });
+                if (res.data.success) {
+                    toast.success('Google Login successful!');
+                    router.push("/Dashboard");
+                }
+            } catch (error: any) {
+                toast.error(error.response?.data?.message || 'Google Login failed.');
+            }
+        },
+        onError: () => toast.error('Google Login Failed'),
+    });
 
     type FormData = {
         name:string,
@@ -96,7 +114,7 @@ export default function SignUpPage() {
 
                     <div className="grid grid-cols-3 gap-4 mb-6 ml-40">
 
-                        <button type="button" aria-label="Sign up with Google" className="social-btn">
+                        <button type="button" onClick={() => loginWithGoogle()} aria-label="Sign up with Google" className="social-btn">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#signup_g)">
                                     <path d="M12 9.818V14.466h6.458c-.284 1.494-1.135 2.76-2.411 3.61l3.895 3.022C22.21 19.004 23.52 15.928 23.52 12.273c0-.851-.077-1.669-.218-2.455L12 9.818Z" fill="#4285F4" />
