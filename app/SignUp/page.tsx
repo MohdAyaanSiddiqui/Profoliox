@@ -7,23 +7,26 @@ import { toast } from "react-hot-toast";
 export default function SignUpPage() {
     
     const router = useRouter();
+
     type FormData = {
         name:string,
         email:string,
         password:string,
         confirm:string
     }
+
     const[formData,setFormData] = useState<FormData>({
         name:"",
         email:"",
         password:"",
         confirm:""
     })
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-     const submithandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    const submithandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(formData);
         try {
@@ -35,7 +38,7 @@ export default function SignUpPage() {
             });
             if (res.data.success) {
                 toast.success(res.data.message || 'Account created!');
-                router.push("/login");
+                router.push("/Login");
             }
 
         } catch (error: any) {

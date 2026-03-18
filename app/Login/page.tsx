@@ -35,7 +35,7 @@ export default function LoginPage() {
             if (res.data.success) {
                 console.log("Login successful, setting user:", res.data.user);
                 toast.success(res.data.message || 'Login successful!');
-                router.push("/dashboard");
+                router.push("/Onboarding");
             }
 
         } catch (error: any) {
