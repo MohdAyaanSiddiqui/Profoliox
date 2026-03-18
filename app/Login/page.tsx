@@ -1,11 +1,14 @@
 'use client'
 import React, { useState } from "react";
 import Link from "next/link";
-
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 export default function LoginPage() {
     
     const [rememberMe, setRememberMe] = useState(false);
-
+    
+    const router = useRouter();
      type FormData = {
             email:string,
             password:string,
@@ -19,11 +22,27 @@ export default function LoginPage() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+      const submithandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(formData);
-    };
+        try {
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/user/login`, formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                withCredentials: true
+            });
+            if (res.data.success) {
+                console.log("Login successful, setting user:", res.data.user);
+                toast.success(res.data.message || 'Login successful!');
+                router.push("/dashboard");
+            }
 
+        } catch (error: any) {
+            console.log(error);
+            toast.error(error.response?.data?.message || 'Login failed. Please try again.');
+        }
+    }
     return (
         <>
             <style>{`
@@ -92,7 +111,7 @@ export default function LoginPage() {
                         <span className="divider-line" />
                     </div>
 
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <form onSubmit={submithandler} className="flex flex-col gap-4">
                        
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

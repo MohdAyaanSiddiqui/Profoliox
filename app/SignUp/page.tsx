@@ -1,9 +1,12 @@
 'use client'
 import React, { useState } from "react";
 import Link from "next/link";
-
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 export default function SignUpPage() {
-
+    
+    const router = useRouter();
     type FormData = {
         name:string,
         email:string,
@@ -20,14 +23,26 @@ export default function SignUpPage() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+     const submithandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (formData.password !== formData.confirm) {
-            alert("Passwords do not match.");
-            return;
-        }
         console.log(formData);
-    };
+        try {
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/user/signup`, formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                withCredentials: true
+            });
+            if (res.data.success) {
+                toast.success(res.data.message || 'Account created!');
+                router.push("/login");
+            }
+
+        } catch (error: any) {
+            console.log(error);
+            toast.error(error.response?.data?.message || 'Sign up failed. Please try again.')
+        }
+    }
 
     return (
         <>
@@ -102,7 +117,7 @@ export default function SignUpPage() {
                     </div>
 
 
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <form onSubmit={submithandler} className="flex flex-col gap-4">
 
                         <div className="field-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
