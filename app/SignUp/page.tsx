@@ -3,28 +3,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 import { toast } from "react-hot-toast";
-import {signIn} from "next-auth/react"
 export default function SignUpPage() {
     
     const router = useRouter();
-    const loginWithGoogle = useGoogleLogin({
-        onSuccess: async (tokenResponse) => {
-            try {
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/user/google`, {
-                    token: tokenResponse.access_token
-                }, { withCredentials: true });
-                if (res.data.success) {
-                    toast.success('Google Login successful!');
-                    router.push("/Dashboard");
-                }
-            } catch (error: any) {
-                toast.error(error.response?.data?.message || 'Google Login failed.');
-            }
-        },
-        onError: () => toast.error('Google Login Failed'),
-    });
 
     type FormData = {
         name:string,
@@ -112,23 +95,27 @@ export default function SignUpPage() {
                         <p className="mt-2 text-sm text-gray-400">Join us today — it&apos;s free to get started.</p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 mb-6 ml-40">
-
-                        <button type="button" onClick={() => loginWithGoogle()} aria-label="Sign up with Google" className="social-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#signup_g)">
-                                    <path d="M12 9.818V14.466h6.458c-.284 1.494-1.135 2.76-2.411 3.61l3.895 3.022C22.21 19.004 23.52 15.928 23.52 12.273c0-.851-.077-1.669-.218-2.455L12 9.818Z" fill="#4285F4" />
-                                    <path d="M5.277 14.284 4.398 14.957l-3.11 2.421C3.264 21.295 7.31 24 12.001 24c3.24 0 5.957-1.069 7.942-2.902l-3.895-3.022c-1.069.72-2.432 1.157-4.047 1.157-3.12 0-5.77-2.105-6.72-4.942l-.004-.007Z" fill="#34A853" />
-                                    <path d="M1.287 6.622A11.963 11.963 0 0 0 0 12c0 1.942.469 3.764 1.287 5.378L5.28 14.28A7.16 7.16 0 0 1 4.898 12c0-.797.142-1.56.382-2.28L1.287 6.622Z" fill="#FBBC05" />
-                                    <path d="M12.002 4.778c1.767 0 3.338.61 4.592 1.789l3.437-3.437C17.947 1.19 15.242 0 12.002 0 7.31 0 3.264 2.695 1.29 6.622l3.992 3.098c.95-2.836 3.6-4.942 6.72-4.942Z" fill="#EA4335" />
-                                </g>
-                                <defs><clipPath id="signup_g"><rect width="24" height="24" fill="white" /></clipPath></defs>
-                            </svg>
-                        </button>
-
-             
-
-                        
+                    <div className="w-full flex justify-center mb-6">
+                        <GoogleLogin
+                            theme="outline"
+                            size="large"
+                            text="signup_with"
+                            width="250"
+                            onSuccess={async (credentialResponse) => {
+                                try {
+                                    const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/user/google`, {
+                                        token: credentialResponse.credential
+                                    }, { withCredentials: true });
+                                    if (res.data.success) {
+                                        toast.success('Google Login successful!');
+                                        router.push("/Dashboard");
+                                    }
+                                } catch (error: any) {
+                                    toast.error(error.response?.data?.message || 'Google Login failed.');
+                                }
+                            }}
+                            onError={() => toast.error('Google Login Failed')}
+                        />
                     </div>
 
                     <div className="flex items-center gap-3 mb-6">
