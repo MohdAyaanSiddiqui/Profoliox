@@ -1,75 +1,67 @@
 'use client'
 
 import React from "react"
-import { Search, History, Users, Plus, LayoutGrid, Megaphone, HelpCircle, Settings, Home, Layout, User, LogOut } from "lucide-react"
-
-const RainbowButton = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-    <div className={`rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100 ${className}`}>
-        <button className="px-5 text-sm py-2 text-white rounded-full font-medium bg-gray-900/80 backdrop-blur whitespace-nowrap w-full">
-            {children}
-        </button>
-    </div>
-)
+import { Search, History, Users, Plus, LayoutGrid, Megaphone, HelpCircle, Settings } from "lucide-react"
 
 const SidebarPage = () => {
-    const topItems = [
-        { icon: <Search size={22} />, label: "Search" },
-        { icon: <History size={22} />, label: "History" },
-        { icon: <Users size={22} />, label: "Team" },
-    ]
-
-    const bottomItems = [
-        { icon: <LayoutGrid size={22} />, label: "Apps" },
-        { icon: <Megaphone size={22} />, label: "Updates" },
-        { icon: <HelpCircle size={22} />, label: "Help" },
-        { icon: <Settings size={22} />, label: "Settings" },
+    const items = [
+        { icon: <Search size={20} />, label: "Search" },
+        { icon: <LayoutGrid size={20} />, label: "Projects" },
+        { icon: <History size={20} />, label: "Activity" },
+        { icon: <Users size={20} />, label: "Team" },
+        { icon: <Plus size={20} />, label: "Create", primary: true },
+        { icon: <Megaphone size={20} />, label: "Updates" },
+        { icon: <Settings size={20} />, label: "Settings" },
     ]
 
     return (
-        <aside className="fixed left-4 top-4 bottom-4 w-20 border border-white/10 bg-[#0C0C0C] backdrop-blur-md rounded-[2rem] flex flex-col items-center py-8 text-white max-md:hidden shadow-2xl z-50">
-            {/* Logo */}
-            <div className="mb-10 cursor-pointer hover:opacity-80 transition">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
-                    <img src="/MyLogo.jpeg" alt="Logo" className="w-full h-full object-cover" />
+        <aside className="fixed left-8 top-1/2 -translate-y-1/2 flex flex-col items-center z-50 max-md:hidden">
+            <div className="relative group">
+                {/* Background Aurora Glow */}
+                <div className="absolute -inset-4 bg-gradient-to-b from-teal-500/20 via-purple-500/10 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                {/* Floating Dock Body */}
+                <div className="relative flex flex-col gap-3 p-3 bg-black/40 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                    {/* Logo/Avatar at Top */}
+                    <div className="w-12 h-12 mb-2 rounded-full overflow-hidden border border-white/10 p-1 hover:scale-110 transition duration-300 cursor-pointer">
+                        <img src="/MyLogo.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
+                    </div>
+
+                    {items.map((item, index) => (
+                        <div key={index} className="relative group/item">
+                            <button 
+                                className={`
+                                    relative flex items-center justify-center w-12 h-12 rounded-2xl transition-all duration-300
+                                    ${item.primary ? 'bg-teal-500 text-black shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-105 active:scale-95' : 'text-slate-400 hover:text-white hover:bg-white/5'}
+                                `}
+                            >
+                                <span className="relative z-10">{item.icon}</span>
+                            </button>
+
+                            {/* Hover tooltip - slide out */}
+                            <div className="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-zinc-900 text-white text-[11px] font-medium rounded-lg opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 whitespace-nowrap pointer-events-none border border-white/5 shadow-xl">
+                                {item.label}
+                                <div className="absolute left-[-4px] top-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-zinc-900 border-l border-b border-white/5" />
+                            </div>
+
+                            {/* Active Item Indicator (Subtle dot) */}
+                            {index === 1 && !item.primary && (
+                                <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-teal-500 rounded-full blur-[0.5px]" />
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
-
-            {/* Top Items */}
-            <div className="flex flex-col gap-6 items-center flex-1">
-                {topItems.map((item) => (
-                    <button 
-                        key={item.label}
-                        className="text-slate-400 hover:text-white transition-colors duration-200"
-                        title={item.label}
-                    >
-                        {item.icon}
-                    </button>
-                ))}
-
-                {/* Active Item (Coral/Pink) */}
-                <button className="w-12 h-12 bg-[#FF5C7E] rounded-2xl flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,92,126,0.4)] hover:scale-105 transition-transform">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 5v14M5 12h14" />
-                    </svg>
+            
+            {/* Help/Support floating separate below */}
+            <div className="mt-6 relative group/help">
+                <button className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/5 rounded-full flex items-center justify-center text-slate-400 hover:text-white transition shadow-lg hover:bg-white/10">
+                    <HelpCircle size={20} />
                 </button>
-
-                {/* Second Plus (Optional, but matching image) */}
-                <button className="text-slate-400 hover:text-white transition" title="Add">
-                    <Plus size={24} />
-                </button>
-            </div>
-
-            {/* Bottom Items */}
-            <div className="flex flex-col gap-6 items-center">
-                {bottomItems.map((item) => (
-                    <button 
-                        key={item.label}
-                        className="text-slate-400 hover:text-white transition-colors duration-200"
-                        title={item.label}
-                    >
-                        {item.icon}
-                    </button>
-                ))}
+                <div className="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-zinc-900 text-white text-[11px] font-medium rounded-lg opacity-0 -translate-x-2 group-hover/help:opacity-100 group-hover/help:translate-x-0 transition-all duration-300 whitespace-nowrap pointer-events-none border border-white/5">
+                    Help & Support
+                    <div className="absolute left-[-4px] top-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-zinc-900 border-l border-b border-white/5" />
+                </div>
             </div>
         </aside>
     )
