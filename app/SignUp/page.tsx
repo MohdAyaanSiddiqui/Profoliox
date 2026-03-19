@@ -108,7 +108,7 @@ export default function SignUpPage() {
                                     }, { withCredentials: true });
                                     if (res.data.success) {
                                         toast.success('Google Login successful!');
-                                        router.push("/Dashboard");
+                                        router.push("/Onboarding");
                                     }
                                 } catch (error: any) {
                                     toast.error(error.response?.data?.message || 'Google Login failed.');
