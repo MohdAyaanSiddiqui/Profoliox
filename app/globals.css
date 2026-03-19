@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../node_modules/@heroui/react/dist/**/*.{js,ts,jsx,tsx}";
+
 
 :root {
   --background: #0C0414;
