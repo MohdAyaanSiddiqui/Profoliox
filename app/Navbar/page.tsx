@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Bell, Zap, MoreHorizontal, User, Sparkles } from "lucide-react"
-
+import Example from "../Upgrade/page"
 const NavbarDemo = () => {
     return (
         <header className="fixed top-6 left-1/2 -translate-x-1/2 w-fit z-40 max-md:top-4 max-md:w-[95%]">
@@ -22,17 +22,14 @@ const NavbarDemo = () => {
                         </span>
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-[11px] font-bold text-teal-500 uppercase tracking-widest leading-none mb-1">PRO</span>
+                        <span className="text-[11px] font-bold text-teal-500 uppercase tracking-widest leading-none mb-1">PRO FOLIO X</span>
                         <span className="text-sm font-semibold text-white leading-none">Workspace</span>
                     </div>
                 </div>
 
                 {/* Center: Dynamic Info (Hidden on mobile) */}
                 <div className="hidden lg:flex items-center gap-6">
-                    <div className="flex items-center gap-2 group/credits cursor-pointer">
-                        <div className="w-1.5 h-1.5 bg-teal-500 rounded-full group-hover/credits:scale-150 transition animate-pulse" />
-                        <span className="text-xs text-slate-400 font-medium">92% Build Capacity</span>
-                    </div>
+                  <Example/>
                     
                     <div className="flex items-center gap-3 px-4 py-1.5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition cursor-pointer">
                         <span className="text-[11px] font-semibold text-white whitespace-nowrap">0 Credits Available</span>

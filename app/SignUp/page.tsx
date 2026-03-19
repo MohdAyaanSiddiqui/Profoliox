@@ -6,21 +6,21 @@ import { useRouter } from "next/navigation";
 import { GoogleLogin } from '@react-oauth/google';
 import { toast } from "react-hot-toast";
 export default function SignUpPage() {
-    
+
     const router = useRouter();
 
     type FormData = {
-        name:string,
-        email:string,
-        password:string,
-        confirm:string
+        name: string,
+        email: string,
+        password: string,
+        confirm: string
     }
 
-    const[formData,setFormData] = useState<FormData>({
-        name:"",
-        email:"",
-        password:"",
-        confirm:""
+    const [formData, setFormData] = useState<FormData>({
+        name: "",
+        email: "",
+        password: "",
+        confirm: ""
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,7 +88,7 @@ export default function SignUpPage() {
                 <div className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-40 bg-[#D043FF] blur-[90px] opacity-25 z-0" />
 
                 <div className="auth-card relative z-10 w-full max-w-md bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl px-8 py-10 shadow-2xl">
-                
+
                     <div className="mb-8 text-center">
                         <img src="/MyLogo.jpeg" alt="Logo" className="w-14 h-14 rounded-xl object-cover mx-auto mb-4" />
                         <h1 className="text-3xl font-semibold text-white">Create account</h1>
